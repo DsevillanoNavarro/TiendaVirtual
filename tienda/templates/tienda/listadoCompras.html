@@ -1,0 +1,63 @@
+{% extends 'tienda/base.html' %}
+
+{% block contenido %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+    <form method="GET">
+        <input type="text" name="filtro_nombre" placeholder="Buscar por nombre" value="{{request.GET.filtro_nombre}}">
+        <select name="filtro_marca" id="">
+            <option value="">Selecciona una marca</option>
+            {% for marca in marcas %}
+                <option {% if request.GET.filtro_marca == marca.nombre %} selected {% endif %}>{{marca.nombre}}</option>
+            {% empty %}
+            <p>No hay marcas a seleccionar</p>
+            {% endfor %}
+        </select>
+        
+        <input type="number" name="filtro_precio_max" id="" placeholder="0.00">
+        <input type="submit" value="Buscar">
+    </form>
+    <h2>Productos</h2>
+    {% for producto in productos %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ producto.nombre }}</h5>
+            {% if user.is_staff %}
+                <a class="btn btn-info" href="{% url 'detalleProductos' producto.pk %}">Detalle</a>
+                <a class="btn btn-primary" href="{% url 'producto_editar' producto.pk %}">Editar</a>
+                <a class="btn btn-danger" href="{% url 'producto_borrar' producto.pk %}">Borrar</a>
+            {% endif %}
+            <form method="get" action="{% url 'confirmaCompra' pk=producto.pk %}" class="mt-2">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ compraForm.as_p }}
+                </div>
+                <button type="submit" class="btn btn-success">Comprar</button>
+            </form>
+        </div>
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; Primera</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Ultima &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

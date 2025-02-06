@@ -1,0 +1,10 @@
+{% extends 'tienda/base.html' %}
+
+{% block contenido %}
+<form method="POST">
+    {% csrf_token %}
+CONFIRMAR COMPRA DE {{producto.nombre}} por {{unidades}} unidades
+<input type="hidden" name="unidades" id="unidades" value="{{unidades}}">
+<button type="submit">Confirmar</button>
+</form>
+{% endblock contenido%}

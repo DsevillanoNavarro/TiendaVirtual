@@ -295,5 +295,3 @@ Para documentación detallada y guía completa del proyecto, visita: [Documentac
 
 Este proyecto está licenciado bajo la **MIT License**.  
 Puedes usarlo, modificarlo y distribuirlo libremente.
-
-```

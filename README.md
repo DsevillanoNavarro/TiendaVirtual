@@ -289,11 +289,8 @@ mysql-connector-python==9.2.0
 
 ## 👨‍💻 Autor
 
-Desarrollado por **[@dsevillanonavarro en DeepWiki](https://deepwiki.com/u/dsevillanonavarro)**.  
-En DeepWiki encontrarás documentación extendida del proyecto: diseño, diagramas y ejemplos.
-
----
-
+Desarrollado por **@dsevillanonavarro**.  
+Para documentación detallada y guía completa del proyecto, visita: [Documentación de TiendaVirtual en DeepWiki](https://deepwiki.com/DsevillanoNavarro/TiendaVirtual).
 ## 📃 Licencia
 
 Este proyecto está licenciado bajo la **MIT License**.  

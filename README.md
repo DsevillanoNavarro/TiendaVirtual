@@ -2,23 +2,7 @@
 
 **TiendaVirtual** es una aplicación web de comercio electrónico desarrollada con **Django 5.1.3**, que permite gestionar productos, usuarios, compras y promociones, incluyendo informes detallados y control de permisos por rol.
 
-> 📚 Documentación y aportes en [@dsevillanonavarro en DeepWiki](https://deepwiki.com/u/dsevillanonavarro)
-
----
-
-## 📑 Índice
-
-1. [Objetivo del Proyecto](#objetivo-del-proyecto)  
-2. [Estructura del Proyecto](#estructura-del-proyecto)  
-3. [Funcionalidades Principales](#funcionalidades-principales)  
-4. [Requisitos](#requisitos)  
-5. [Instalación y Configuración](#instalación-y-configuración)  
-6. [Uso Básico](#uso-básico)  
-7. [Configuración de Archivos Multimedia](#configuración-de-archivos-multimedia)  
-8. [Pruebas y Validación](#pruebas-y-validación)  
-9. [Futuras Mejoras](#futuras-mejoras)  
-10. [Autor](#autor)  
-11. [Licencia](#licencia)  
+> 📚 Documentación y aportes en [DeepWiki](https://deepwiki.com/DsevillanoNavarro/TiendaVirtual)
 
 ---
 

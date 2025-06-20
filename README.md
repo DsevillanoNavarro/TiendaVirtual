@@ -1,60 +1,149 @@
-# DWES -Django-Models
+# 🛍️ Tienda Virtual - Proyecto Django
 
-El objetivo de esta práctica es profundizar en los modelos de Django.
-Se pretende crear una aplicación que permita gestionar la base de una 
-aplicación web de venta de productos.
+Bienvenido a **TiendaVirtual**, una aplicación web de comercio electrónico desarrollada con **Django 5.1.3**. Este proyecto ofrece funcionalidades completas de gestión de productos, autenticación de usuarios, proceso de compra, informes de negocio y control de permisos.
 
-![Modelos a crear](Modelos.png)
+> ✍️ Autor: [@dsevillanonavarro en DeepWiki](https://deepwiki.com/u/dsevillanonavarro)
 
-Se solicita:
+---
 
-## Versión 1.0
-* **Creación de los modelos** necesarios para su alta y administración 
-en django admin
-* **CRUD de productos** en la ruta tienda/admin/productos
-   * **listado** de los productos de la tienda
-      * Debe tener enlaces para el resto de acciones 
-   * **edicion/\<int:pk>** Editar información de un producto
-   * **eliminar/\<int:pk>** Debe solicitar confirmación
-   * **nuevo** Permite introducir un nuevo producto
-* **Compra de productos**. Tiene lugar en la URL tienda/
-  * **compra** se muestra un listado de los productos y es posible buscar 
-  y filtrar por varios campos.
-  * **checkout** se muestra información detallada del producto, se introducen 
-  las unidades y se confirma la compra.
-* **Informes** En la ruta tienda/informes/
-  * Productos por marca. Primero muestra las marcas y 
-  después un listado con los productos de la marca que se seleccione
-  * Top ten productos vendidos. Mayor número de unidades vendidas
-  * Compras de un usuario con acceso al detalle de cada compra.
-  * Top ten mejores clientes. Por importe gastado.
-* **Login** 
-  * Incluye en el template base un apartado que identifique si el usuario
-  está o no logado, dando opciones de login o logout según proceda
-  * Crea un formulario de login que permita autenticar y logar 
-  únicamente a los clientes (No se permite login de usuarios que no tengan
-  relación con el modelo cliente)
-  * El login devuelve a la página desde la que se redirigió.
-* **Control de Permisos** 
-  * Las secciones de Informes, Admin y CRUD de productos son sólo
-  para usuarios tipo superuser y staff
-  * La vista de checkout debe estar restringida a usuarios registrados
-  cómo clientes.
-  * Las vistas de productos de la tienda y detalle de producto son de
-  acceso público.
-  
-## Versión 2.0 
-* **Creación de los modelos** para la gestión de promociones
-* **CRUD de promociones** en la ruta tienda/admin/promociones/
-   * **listado** de los productos de la tienda
-      * Debe tener enlaces para el resto de acciones 
-   * **edicion/\<int:pk>** Editar información de un producto
-   * **eliminar/\<int:pk>** Debe solicitar confirmación
-   * **nuevo** Permite introducir un nuevo producto
-* **Compra de productos**. Ampliación de funcionalidades
-  * **checkout** Permite introducir un código de promoción, valida si la promoción es aplicable y muestra el descuento
-  antes de confirmar la compra.
-* **Informes** En la ruta tienda/informes/
-  * **Datos de promociones**. Muestra un informe con el número de compras realizadas
-    con cada promoción. Al final muestra un resumen con la cifra total de compras promocionadas
-    e información del descuento medio aplicado a las cuentas con promoción.
+## 🎯 Objetivo del Proyecto
+
+El objetivo principal de este proyecto es afianzar los conocimientos de Django en aspectos clave como:
+
+- Modelado de datos
+- Formularios
+- Autenticación personalizada
+- Permisos de usuario
+- Generación de informes
+- Flujo completo de compra
+
+Está pensado como una práctica completa para proyectos de desarrollo web en Python/Django.
+
+---
+
+## 🧱 Estructura del Proyecto
+
+dsevillanonavarro-tiendavirtual/
+├── db.sqlite3
+├── manage.py
+├── requirements.txt
+├── tienda/ # App principal
+│ ├── admin.py # Registro de modelos
+│ ├── models.py # Usuario, Producto, Compra, Marca
+│ ├── views.py # CRUD, compra, informes
+│ ├── forms.py
+│ ├── urls.py
+│ ├── templates/
+│ │ └── tienda/ # Templates: productos, compras, perfil, etc.
+│ └── migrations/
+├── tiendavirtual/ # Configuración del proyecto Django
+│ ├── settings.py
+│ ├── urls.py
+│ ├── wsgi.py
+│ └── asgi.py
+
+---
+
+## 🚀 Funcionalidades
+
+### 🛒 Compras
+- Listado de productos con filtros por nombre, precio y marca.
+- Vista detallada del producto.
+- Checkout con confirmación y control de saldo y stock.
+- Compra registrada con IVA e importe total.
+
+### 🧑‍💼 Gestión de Usuarios
+- Login personalizado sólo para clientes registrados.
+- Visualización del estado de autenticación en base.html.
+- Panel de perfil con historial de compras.
+
+### 🔐 Control de Permisos
+- Secciones protegidas por tipo de usuario:
+  - CRUD e informes: solo staff/superuser.
+  - Checkout: solo clientes logueados.
+  - Vista de productos: acceso público.
+
+### ⚙️ CRUD de Productos y Promociones
+- Crear, editar, eliminar y listar productos.
+- Asociar productos con marcas.
+- Promociones (v2.0): aplicar descuentos desde el checkout con códigos.
+
+### 📊 Informes
+- Top 10 productos más vendidos.
+- Top 10 clientes por importe gastado.
+- Listado de compras por usuario.
+- Informe detallado de promociones utilizadas.
+
+---
+
+## 📦 Requisitos
+
+- Python 3.10+
+- Django 5.1.3
+- Pillow
+- mysql-connector-python (opcional)
+
+Instalación de dependencias:
+
+```bash
+pip install -r requirements.txt
+⚙️ Configuración Inicial
+bash
+Copiar
+Editar
+# Aplicar migraciones
+python manage.py migrate
+
+# Crear superusuario
+python manage.py createsuperuser
+
+# Ejecutar servidor local
+python manage.py runserver
+Archivos multimedia se sirven desde:
+
+python
+Copiar
+Editar
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+🖼️ Interfaz de Usuario
+Templates con Bootstrap 5
+
+Formularios estilizados automáticamente
+
+Alertas y validaciones con mensajes Django
+
+Navegación intuitiva
+
+🧪 Funcionalidad de Prueba
+Usa el superusuario para probar el CRUD y los informes
+
+Crea un usuario cliente con saldo y realiza compras
+
+Aplica promociones desde el checkout
+
+📍 Próximas Funcionalidades (ideas)
+Registro de usuarios en frontend
+
+Soporte para métodos de pago simulados
+
+Generación de facturas en PDF
+
+Notificaciones por email
+
+Filtros avanzados en informes
+
+👨‍💻 Autor
+Este proyecto fue desarrollado por @dsevillanonavarro en DeepWiki.
+Puedes seguir mis aportes y otros proyectos allí.
+
+📃 Licencia
+Este proyecto está licenciado bajo MIT. Eres libre de usar, modificar y compartir.
+
+yaml
+Copiar
+Editar
+
+---
+
+¿Quieres que además te genere un archivo `README.md` descargable o incluir badges (build, licencia, versión de Django, 

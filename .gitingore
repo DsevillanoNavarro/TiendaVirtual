@@ -1,0 +1,50 @@
+
+---
+
+## 🧾 `.gitignore` sugerido para tu proyecto
+
+```gitignore
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+
+# Environments
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# Pytest
+.cache
+
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Static
+staticfiles/
+
+# Pip
+pip-log.txt
+
+# IDEs
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Migrations
+**/migrations/*.pyc
+**/migrations/__pycache__/
+**/migrations/*.py
+!tienda/migrations/__init__.py

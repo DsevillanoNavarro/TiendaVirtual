@@ -296,12 +296,4 @@ Para documentación detallada y guía completa del proyecto, visita: [Documentac
 Este proyecto está licenciado bajo la **MIT License**.  
 Puedes usarlo, modificarlo y distribuirlo libremente.
 
-Ejemplo de contenido en `LICENSE`:
-```text
-MIT License
-
-Copyright (c) 2025 dsevillanonavarro
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-...
 ```
